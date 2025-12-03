@@ -1,4 +1,4 @@
 # NihatBaghirli-portfolio, 692.24E
-Github username:nihatbaghirli
-Link to my repository:https://nihatbaghirli.github.io/NihatBaghirli-portfolio/
+Github username:nihatbaghirli <br>
+Link to my repository:https://nihatbaghirli.github.io/NihatBaghirli-portfolio/ <br>
 My personal portfolio website for Lab Task 7
