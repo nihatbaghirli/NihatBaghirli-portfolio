@@ -1,3 +1,4 @@
+/* --- Global Reset & Typography --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,23 +11,52 @@ body {
     color: #333;
     background: #f8f9fa;
     max-width: 1200px;
+    margin: 0 auto; 
+}
+
+main {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-
-nav {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+/* --- 1. Navigation: Sticky Header Upgrade --- */
+#main-header {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe); 
     padding: 15px 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    margin-bottom: 0; 
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3); 
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
+.logo a {
     color: white;
     text-decoration: none;
-    margin-right: 25px;
+    font-weight: bold;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.logo a:hover {
+    color: #ffeaa7; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
     font-weight: bold;
     font-size: 18px;
     padding: 8px 15px;
@@ -34,12 +64,32 @@ nav a {
     transition: all 0.3s;
 }
 
-nav a:hover {
+.nav-link:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
+/* --- 2. Hamburger Menu Styles (Mobile Only) --- */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1001; 
+}
 
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white; 
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* --- Headings and Content Cards --- */
 h1 {
     color: #2d3436;
     font-size: 2.5rem;
@@ -53,7 +103,6 @@ h2 {
     font-size: 1.8rem;
     margin: 20px 0;
 }
-
 
 .content-card {
     background: white;
@@ -69,7 +118,7 @@ h2 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-
+/* --- Buttons and Tags --- */
 .btn {
     display: inline-block;
     background: linear-gradient(135deg, #00b894, #00cec9);
@@ -87,7 +136,6 @@ h2 {
     box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
 }
 
-
 .skill-tag {
     display: inline-block;
     background: #dfe6e9;
@@ -98,7 +146,6 @@ h2 {
     font-size: 14px;
 }
 
-
 .project-card {
     background: white;
     border-radius: 10px;
@@ -108,7 +155,7 @@ h2 {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
-
+/* --- Footer --- */
 footer {
     text-align: center;
     margin-top: 50px;
@@ -116,26 +163,75 @@ footer {
     background: #2d3436;
     color: white;
     border-radius: 10px;
+    max-width: 1200px; 
+    margin: 50px auto 0 auto; 
 }
 
 footer p {
     font-size: 18px;
 }
 
+/* --- 3. Scroll-Reveal Animation Styles --- */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
+.reveal-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- 4. Media Queries for Mobile Responsiveness --- */
 @media (max-width: 768px) {
     body {
+        padding: 0;
+    }
+
+    main {
         padding: 15px;
     }
     
-    nav {
-        padding: 12px;
-        text-align: center;
+    #main-header {
+        padding: 12px 15px;
     }
     
-    nav a {
+    .menu-toggle {
+        display: block; 
+    }
+    
+    .nav-menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 61px; 
+        left: 0;
+        background: rgba(108, 92, 231, 0.95); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.is-open {
+        display: flex;
+    }
+
+    .nav-link {
         display: block;
-        margin: 10px 0;
+        text-align: center;
+        margin: 0; 
+        padding: 15px 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: none; 
     }
     
     h1 {
@@ -144,5 +240,6 @@ footer p {
     
     .content-card {
         padding: 20px;
+        transform: none !important; 
     }
 }
